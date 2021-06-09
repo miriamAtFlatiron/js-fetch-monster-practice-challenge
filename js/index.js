@@ -12,14 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 const getFiftyMonsters = () => {
-  fetch("http://localhost:3000/monsters?_limit=50")
+  fetch("http://localhost:3000/monsters/?_limit=50")
   .then(res => res.json())
-  .then(data => data.forEach(putMonstersOnPage(data))
-    console.log(data)
+  .then(data => data.forEach(putMonstersOnPage(monster))
+  .then(console.log(data))
   )
 }
 
-const putMonstersOnPage = (monsters) => {
+const putMonstersOnPage = (monster) => {
   let monsterContainer = document.querySelector('#monster-container')
     let name = document.createElement('h2')
     let age = document.createElement('h4')
@@ -28,4 +28,16 @@ const putMonstersOnPage = (monsters) => {
     age.innerText = monster.age
     description.innerText = monster.description
     monsterContainer.append(name,age,description)
+}
+
+also: 
+const monsterContainerDiv = document.querySelector("#monster-container")
+const renderMonster = (monster) => {
+  let monsterDiv = document.createElement('div')
+    monsterDiv.innerHTML = `
+     <h2>${monster.name}</h2>
+     <h4>${monster.age}</h4>
+     <p>${monster.description}</p>
+    `
+    monsterContainer.append(monsterDiv)
 }
