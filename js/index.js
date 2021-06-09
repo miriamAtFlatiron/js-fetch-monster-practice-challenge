@@ -1,6 +1,8 @@
 //page loads -> show 50 monsters 
 // grab html container for monsters 
 //create name and age and description
+//append to monsterContainer
+//check if works in browser
 
 const url = "http://localhost:3000/monsters"
 const monsters = []
